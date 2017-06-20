@@ -45,7 +45,7 @@ def minKey(FullKey):  # Видалення перевірочних бітів �
         D0 += FullKey[G[i] - 1]
     return C0 + D0
 
-def iteration(C0D0):  # Сам алгоритм
+def runDES(C0D0):  # Сам алгоритм
     IPOut = transposition(IP, openText)  # Початкова перестановка IP
     L0 = IPOut[:32]
     R0 = IPOut[32:]
@@ -86,7 +86,7 @@ def toASCII(binaryText):
 f = open('D:\\test.txt')
 openText = f.read()
 
-Run = iteration(minKey(raiseKey()))  
+Run = runDES(minKey(raiseKey()))  
 
 f = open('D:\\test2.txt', 'w')
 f.write(Run)
